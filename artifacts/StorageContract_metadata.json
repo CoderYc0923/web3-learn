@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getValue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "setValue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ABITest_Storage.sol": "StorageContract"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ABITest_Storage.sol": {
+			"keccak256": "0x277f8fe746d56762600e3ff344e8457b6766c20e43bd5b626ec6cdddf79a74ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ddc90df9dac01a1bcaaff123475f2601b3812f0aa663b0cf41415e88242e4b35",
+				"dweb:/ipfs/QmVryad1CgcWLyRC11g6a2sGjmm7b2mab4FBJK5dndbFeH"
+			]
+		}
+	},
+	"version": 1
+}
