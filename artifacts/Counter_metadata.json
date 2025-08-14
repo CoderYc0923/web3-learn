@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "increment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ABITest_DelegatecallContract.sol": "Counter"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ABITest_DelegatecallContract.sol": {
+			"keccak256": "0x6e0e1ba606089fa1faf74476d903ed60c21164631cab0d64d181bc979a373b11",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://90b122a809a39b61799ec2f6143e605fc6fbb6c622641ea080d9161e7cdb7659",
+				"dweb:/ipfs/QmRcMjrvMTzrc8W8JvNiwXWKLhUMuaRmpQ6g3wAHHnsWPm"
+			]
+		}
+	},
+	"version": 1
+}

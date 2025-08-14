@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "setValue",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ABITest_CallFunctionContract.sol": "testContract"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ABITest_CallFunctionContract.sol": {
+			"keccak256": "0x190b800105781d12f708bd3449873efa93420ca786f45f3d57c9eda2a86a30e2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://38e50839b95fc494a6f40bbc68ab38ba11540aefe37cffc4bdc1858f9b75e6eb",
+				"dweb:/ipfs/QmdGzBwyyG91cx74NrCKnjyhSfJbecReLrpxakwiHvvSYN"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenContract",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "checkBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ABITest_StaticcallContract.sol": "Caller"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ABITest_StaticcallContract.sol": {
+			"keccak256": "0xd53fec767c30105bb77848469ceb07c2e33455ee7e7bb8be4f2c52bbd3c117fe",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://77f76f64e34dbabb9a4f51e1cc76b6460fc24ea7d4ffc00dc17ed30560a8c5d6",
+				"dweb:/ipfs/QmcRsF86sknj51AHB4B68oGo9Fi57d2hSf6WUHnAvMJGxQ"
+			]
+		}
+	},
+	"version": 1
+}
