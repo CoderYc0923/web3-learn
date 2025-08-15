@@ -1,0 +1,21 @@
+import { CONTRACT_ABI, CONTRACT_ADDRESS } from '@/contracts/helloworld';
+import { useContract } from '@/hooks/useContract';
+import { ContractConfig } from '@/hooks/useContractTypes';
+import { PageContainer } from '@ant-design/pro-components';
+import { Button, Descriptions } from 'antd';
+
+const CONTRACT_CONFIG: ContractConfig = {
+  address: CONTRACT_ADDRESS,
+  abi: CONTRACT_ABI,
+};
+
+const UpgradePage: React.FC = () => {
+
+  return (
+    <PageContainer ghost>
+
+    </PageContainer>
+  );
+};
+
+export default UpgradePage;
