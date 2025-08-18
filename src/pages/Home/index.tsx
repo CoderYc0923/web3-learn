@@ -1,6 +1,6 @@
 import Guide from '@/components/Guide';
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from '@/contracts/helloworld';
-import { useContract } from '@/hooks/useContract';
+import { useConnectWallet } from '@/hooks/useConnectWallet';
 import { ContractConfig } from '@/hooks/useContractTypes';
 import { trim } from '@/utils/format';
 import { PageContainer } from '@ant-design/pro-components';
@@ -17,7 +17,6 @@ const HomePage: React.FC = () => {
   const { name } = useModel('global');
 
   const {
-    contract,
     account,
     network,
     signer,
@@ -26,7 +25,7 @@ const HomePage: React.FC = () => {
     error: walletError,
     connectWallet,
     switchNetwork,
-  } = useContract(CONTRACT_CONFIG);
+  } = useConnectWallet();
 
   return (
     <PageContainer ghost>

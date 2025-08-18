@@ -1,5 +1,5 @@
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from '@/contracts/helloworld';
-import { useContract } from '@/hooks/useContract';
+import { useConnectWallet } from '@/hooks/useConnectWallet';
 import { ContractConfig } from '@/hooks/useContractTypes';
 import { PageContainer } from '@ant-design/pro-components';
 import { Button, Descriptions } from 'antd';

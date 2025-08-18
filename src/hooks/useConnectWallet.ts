@@ -1,5 +1,7 @@
 import { ethers } from 'ethers';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useInitProvider } from './useInitProvider';
+import { useSwitchNetwork, useTransferChainTo10 } from './useNetwork';
 import {
   ContractChainId,
   ContractConfig,
@@ -12,10 +14,14 @@ import {
   EthersSigner,
   NETWORK_NAMES,
   UseContractResult,
+  SwitchNetworkResult,
 } from './useContractTypes';
 
-export function useContract(config: ContractConfig): UseContractResult {
-  const [contract, setContract] = useState<ContractInstance>(null);
+/**
+ * 连接钱包
+ */
+export function useConnectWallet(): UseContractResult {
+  //const [contract, setContract] = useState<ContractInstance>(null);
   const [provider, setProvider] = useState<EthersProvider>(null);
   const [signer, setSigner] = useState<EthersSigner>(null);
   const [account, setAccount] = useState<EthereumAccount>(null);
@@ -24,23 +30,17 @@ export function useContract(config: ContractConfig): UseContractResult {
   const [error, setError] = useState<ContractError>(null);
 
   // 使用 ref 存储最新值避免闭包问题
-  const configRef = useRef(config);
   const accountRef = useRef(account);
   const providerRef = useRef(provider);
 
   useEffect(() => {
-    configRef.current = config;
     accountRef.current = account;
     providerRef.current = provider;
-  }, [config, account, provider]);
+  }, [account, provider]);
 
   //初始化以太坊提供程序
   const initProvider = useCallback(async (): Promise<EthersProvider> => {
-    if (!window.ethereum) {
-      throw new Error('未检测到以太坊钱包。请安装 MetaMask!');
-    }
-
-    const newProvider = new ethers.BrowserProvider(window.ethereum);
+    const newProvider = useInitProvider();
     setProvider(newProvider);
     return newProvider;
   }, []);
@@ -68,14 +68,16 @@ export function useContract(config: ContractConfig): UseContractResult {
       setSigner(signer);
       setNetwork(network);
 
+      console.info('钱包连接成功')
+
       // 创建合约实例
-      const contract = new ethers.Contract(
+      /* const contract = new ethers.Contract(
         configRef.current.address,
         configRef.current.abi,
         signer,
-      );
+      ); */
 
-      setContract(contract);
+      //setContract(contract);
     } catch (err) {
       console.error('钱包连接失败:', err);
       setError(err instanceof Error ? err.message : '未知错误');
@@ -87,49 +89,14 @@ export function useContract(config: ContractConfig): UseContractResult {
   //切换网络
   const switchNetwork = useCallback(
     async (chainId: ContractChainId) => {
-      if (!window.ethereum) return;
       try {
         setLoading(true);
-
-        await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId }],
-        });
-
-        // 重新获取网络信息
-        if (provider) {
-          const network = await provider.getNetwork();
-          setNetwork(network);
-        }
-      } catch (err) {
-        console.error('网络切换失败:', err);
-
-        // 如果链尚未添加到钱包，尝试添加它
-        if ((err as { code: number }).code === 4902) {
-          try {
-            await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
-              params: [
-                {
-                  chainId,
-                  chainName: NETWORK_NAMES[chainId] || `Chain ${chainId}`,
-                  rpcUrls: ['https://rpc.example.com'],
-                  nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
-                    decimals: 18,
-                  },
-                  blockExplorerUrls: ['https://explorer.example.com'],
-                },
-              ],
-            });
-          } catch (addError) {
-            console.error('添加网络失败:', addError);
-            setError('无法添加网络，请手动添加');
-          }
-        } else {
-          setError(err instanceof Error ? err.message : '网络切换失败');
-        }
+        const { network }: SwitchNetworkResult = await useSwitchNetwork(chainId, provider)
+        setNetwork(network)
+        console.info('切换网络成功')
+      } catch (err: any) {
+        const { error } = err
+        setError(error);
       } finally {
         setLoading(false);
       }
@@ -140,9 +107,10 @@ export function useContract(config: ContractConfig): UseContractResult {
   //断开连接
   const disconnect = useCallback(() => {
     setAccount(null);
-    setContract(null);
+    //setContract(null);
     setSigner(null);
     setNetwork(null);
+    console.info('钱包断开连接')
   }, []);
 
   //检查已有连接
@@ -167,14 +135,16 @@ export function useContract(config: ContractConfig): UseContractResult {
         setSigner(signer);
         setNetwork(network);
 
+        console.info('已有钱包连接成功')
+
         // 创建合约实例
-        const contract = new ethers.Contract(
+        /* const contract = new ethers.Contract(
           configRef.current.address,
           configRef.current.abi,
           signer,
         );
 
-        setContract(contract);
+        setContract(contract); */
       }
     } catch (err) {
       console.error('检查连接失败:', err);
@@ -191,14 +161,16 @@ export function useContract(config: ContractConfig): UseContractResult {
     } else if (accounts[0] !== accountRef.current) {
       // 账户切换
       setAccount(accounts[0]);
+      console.info('账户切换')
       // 不需要重新创建合约实例，因为 signer 会自动更新
     }
   }, []);
 
   //监听网络变化
   const handleChainChanged = useCallback((chainId: ContractChainId) => {
+    
     // 转换为十进制
-    const newChainId = parseInt(chainId, 16).toString();
+    const newChainId = useTransferChainTo10(chainId)
     console.log('网络已切换:', newChainId);
 
     // 重新获取网络信息
@@ -232,7 +204,6 @@ export function useContract(config: ContractConfig): UseContractResult {
   }, [checkExistingConnection, handleAccountsChanged, handleChainChanged]);
 
   return {
-    contract,
     provider,
     signer,
     account,

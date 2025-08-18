@@ -22,7 +22,6 @@ export interface ContractConfig {
 }
 
 export interface UseContractResult {
-  contract: ContractInstance;
   provider: EthersProvider;
   signer: EthersSigner;
   account: EthereumAccount;
@@ -46,3 +45,8 @@ export const NETWORK_NAMES: Record<string, string> = {
   '0xa4ec': 'Celo Mainnet',
   '0x64': 'Gnosis Chain',
 };
+
+export interface SwitchNetworkResult {
+  network?: EthereumNetwork;
+  error?: ContractError;
+}
