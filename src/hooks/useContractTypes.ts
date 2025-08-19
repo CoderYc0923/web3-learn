@@ -29,9 +29,9 @@ export interface UseContractResult {
   loading: ContractLoading;
   error: ContractError;
   isConnected: IsConnected;
-  connectWallet: ConnectWalletFn;
-  switchNetwork: SwitchNetworkFn;
-  disconnect: DisconnectFn;
+  connectWallet?: ConnectWalletFn;
+  switchNetwork?: SwitchNetworkFn;
+  disconnect?: DisconnectFn;
 }
 
 // 常见网络ID映射

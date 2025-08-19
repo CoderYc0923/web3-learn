@@ -1,20 +1,21 @@
 import Guide from '@/components/Guide';
-import { CONTRACT_ABI, CONTRACT_ADDRESS } from '@/contracts/helloworld';
 import { useConnectWallet } from '@/hooks/useConnectWallet';
-import { ContractConfig } from '@/hooks/useContractTypes';
 import { trim } from '@/utils/format';
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
 import { Button, Descriptions } from 'antd';
+import { useEffect } from 'react';
 import styles from './index.less';
-
-const CONTRACT_CONFIG: ContractConfig = {
-  address: CONTRACT_ADDRESS,
-  abi: CONTRACT_ABI,
-};
 
 const HomePage: React.FC = () => {
   const { name } = useModel('global');
+  const { walletConfig, setWalletConfig } = useModel('wallet');
+
+  const connectWalletConfig = useConnectWallet();
+
+  useEffect(() => {
+    setWalletConfig(connectWalletConfig);
+  }, [walletConfig, connectWalletConfig, setWalletConfig]);
 
   const {
     account,
@@ -25,7 +26,16 @@ const HomePage: React.FC = () => {
     error: walletError,
     connectWallet,
     switchNetwork,
-  } = useConnectWallet();
+    disconnect,
+  } = walletConfig;
+
+  const handleConnect = () => {
+    if (isConnected) {
+      disconnect?.();
+    }
+
+    connectWallet?.();
+  };
 
   return (
     <PageContainer ghost>
@@ -33,13 +43,13 @@ const HomePage: React.FC = () => {
         <Guide name={trim(name)} />
 
         <div className={styles.btn}>
-          {isConnected ? (
-            <h3>连接成功</h3>
-          ) : (
-            <Button type="primary" onClick={connectWallet}>
-              {walletLoading ? '连接中...' : '开始连接钱包'}
-            </Button>
-          )}
+          <Button type="primary" onClick={handleConnect}>
+            {isConnected
+              ? '连接成功（重新连接）'
+              : walletLoading
+              ? '连接中...'
+              : '开始连接钱包'}
+          </Button>
         </div>
 
         <div className={styles.config}>
