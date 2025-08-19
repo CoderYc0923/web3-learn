@@ -1,7 +1,7 @@
 import { BrowserProvider, Contract, JsonRpcSigner, Network } from 'ethers';
+import { ContractABI } from './abi';
 
 export type ContractAddress = string;
-export type ContractABI = any[];
 export type ContractChainId = string;
 export type ContractLoading = boolean;
 export type ContractError = string | null;

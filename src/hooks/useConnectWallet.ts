@@ -15,7 +15,7 @@ import {
   NETWORK_NAMES,
   UseContractResult,
   SwitchNetworkResult,
-} from './useContractTypes';
+} from '@/types/contract';
 
 /**
  * 连接钱包

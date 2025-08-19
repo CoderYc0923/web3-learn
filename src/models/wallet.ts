@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { UseContractResult } from '@/hooks/useContractTypes';
+import { UseContractResult } from '@/types/contract';
 
 const defaultConfig = {
     provider: null,

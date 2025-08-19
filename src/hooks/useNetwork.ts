@@ -4,7 +4,7 @@ import {
   EthersProvider,
   SwitchNetworkResult,
   NETWORK_NAMES,
-} from './useContractTypes';
+} from '@/types/contract';
 
 import { ERROR_ENUM } from '@/const/errorEnum';
 
