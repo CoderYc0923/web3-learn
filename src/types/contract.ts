@@ -18,7 +18,8 @@ export type DisconnectFn = () => void;
 export interface ContractConfig {
   address: ContractAddress;
   abi: ContractABI;
-  chainId?: ContractChainId;
+  signer?: EthersSigner;
+  provider?: EthersProvider;
 }
 
 export interface UseContractResult {

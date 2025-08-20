@@ -33,6 +33,13 @@ export const BOX_V2_ABI = [
 	},
 	{
 		"inputs": [],
+		"name": "initialize",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "InvalidInitialization",
 		"type": "error"
 	},
@@ -65,6 +72,57 @@ export const BOX_V2_ABI = [
 	},
 	{
 		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "newName",
+				"type": "string"
+			}
+		],
+		"name": "setName",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newImplementation",
+				"type": "address"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "upgradeToAndCall",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "UUPSUnauthorizedCallContext",
 		"type": "error"
 	},
@@ -91,20 +149,6 @@ export const BOX_V2_ABI = [
 		],
 		"name": "CountChanged",
 		"type": "event"
-	},
-	{
-		"inputs": [],
-		"name": "increment",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "initialize",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -152,52 +196,6 @@ export const BOX_V2_ABI = [
 		"type": "event"
 	},
 	{
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "newName",
-				"type": "string"
-			}
-		],
-		"name": "setName",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "setValue",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -208,37 +206,6 @@ export const BOX_V2_ABI = [
 			}
 		],
 		"name": "Upgraded",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newImplementation",
-				"type": "address"
-			},
-			{
-				"internalType": "bytes",
-				"name": "data",
-				"type": "bytes"
-			}
-		],
-		"name": "upgradeToAndCall",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "ValueChanged",
 		"type": "event"
 	},
 	{
@@ -262,19 +229,6 @@ export const BOX_V2_ABI = [
 				"internalType": "string",
 				"name": "",
 				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getValue",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -321,4 +275,18 @@ export const BOX_V2_ABI = [
 	}
 ]
 
-export const BOX_V2_ADDRESS = "0x9d83e140330758a8fFD07F8Bd73e86ebcA8a5692"
+export const BOX_V2_TRASNFORM = [
+	"function initialize() nonpayable",
+	"function getCount() view returns (uint256)",
+	'function getName() view returns (string)',
+	'function owner() view returns (address)',
+	'function proxiableUUID() view returns (bytes32)',
+	'function upgradeToAndCall(address newImplementation, bytes data) public payable',
+	'function UPGRADE_INTERFACE_VERSION() view returns (string)',
+	'event Initialized(uint64 version)',
+	'event NameChanged(string newName)',
+	'event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)',
+	'event Upgraded(address indexed implementation)',
+  ];
+
+export const BOX_V2_ADDRESS = "0x98a00Ff0a8A17c945818F1eB1bd49Bc170030EA7"
