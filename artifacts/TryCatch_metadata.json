@@ -1,0 +1,129 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "CatchByte",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "CatchEvent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "SuccessEvent",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "execute",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "a",
+						"type": "uint256"
+					}
+				],
+				"name": "executeNew",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/tryCatch/Try_Catch.sol": "TryCatch"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/tryCatch/OnlyEven.sol": {
+			"keccak256": "0xfa0ad6f141db83d43478b792c12ac97a6ad28386b92c18f95e216cf725fb44f7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3aab4ca88e78f949a6807791d50447bc3952d1258f652dadda0dedb279269aed",
+				"dweb:/ipfs/QmPuRJTK3yQfwpmxeBd3zPcDuanxEffpntv3VyCqi8K6Qc"
+			]
+		},
+		"contracts/tryCatch/Try_Catch.sol": {
+			"keccak256": "0xa06127aa979e344632cc3a8b089c23045fe2a0b5da351f90902e826d6e484d31",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://99382758c6b6ce6902e0637d79d9f474e438c813ac99449f7724c877d56f0c6c",
+				"dweb:/ipfs/QmRr1dBX4SkLEM9yEfV6T1vgAQP9cLfX4gm3hEd5xUj4g8"
+			]
+		}
+	},
+	"version": 1
+}

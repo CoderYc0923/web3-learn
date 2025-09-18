@@ -1,0 +1,11 @@
+{
+  "id": "-",
+  "network": "VM",
+  "deployments": {
+    "0x7b96aF9Bd211cBf6BA5b0dd53aa61Dc5806b6AcE": {
+      "date": "2025-08-20T06:35:16.192Z",
+      "contractName": "BoxV1",
+      "implementationAddress": "0x5FD6eB55D12E759a21C09eF703fe0CBa1DC9d88D"
+    }
+  }
+}

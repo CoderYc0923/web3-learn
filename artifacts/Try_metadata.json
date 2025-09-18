@@ -1,0 +1,76 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "a",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "b",
+						"type": "uint256"
+					}
+				],
+				"name": "onlyEven",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/tryCatch/Try_Catch.sol": "Try"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/tryCatch/Try_Catch.sol": {
+			"keccak256": "0xae22795a865a38832730db12320be61ba7944f5edfaca6301b59428f508dd2e3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7297eef6f8dff49ae54054b8cbce3b63233b6327d614eb04888a86678b6f33db",
+				"dweb:/ipfs/QmbYhRM19CYThXxXb62PPKXLJZ8TpWotfJTbWeWvfLWHef"
+			]
+		}
+	},
+	"version": 1
+}
